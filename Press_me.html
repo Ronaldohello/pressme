@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <title>Ești prețios/prețioasă ♥</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f1724;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      width: 320px;
+      box-sizing: border-box;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+    button {
+      background: #ff6b81;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    h2 {
+      font-size: 1.2em;
+      margin: 8px 0;
+    }
+    p {
+      font-size: 1em;
+    }
+    .heart {
+      font-size: 60px;
+      color: #ff4b6e;
+      margin: 20px 0;
+    }
+    a {
+      font-size: 1em;
+      color: #ff6b81;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="card">
+    <h2>Spune-mi cum te numești?</h2>
+    <form id="nameForm">
+      <input type="text" id="first" placeholder="Numele" required>
+      <input type="text" id="last" placeholder="Nume de familie" required>
+      <button type="submit">Trimite</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('nameForm');
+    const card = document.getElementById('card');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const first = document.getElementById('first').value.trim();
+      const last = document.getElementById('last').value.trim();
+      const fullName = first + ' ' + last;
+
+      card.innerHTML = `
+        <div class="heart">♥</div>
+        <h2>Hey ${fullName}!</h2>
+        <p>Ești special — Nu uita aceasta!</p>
+        <a href="#" onclick="window.location.reload()">Înapoi</a>
+      `;
+    });
+  </script>
+</body>
+</html>
